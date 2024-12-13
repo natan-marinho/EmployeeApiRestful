@@ -1,24 +1,34 @@
-API de Funcionários e Departamentos
+# API de Funcionários e Departamentos
+
 <div align="center">
   <img src="./banner.svg" alt="API Banner" />
 </div>
+
 API RESTful para gerenciamento de funcionários e departamentos de uma empresa.
-🚀 Instalação
 
-Clone o repositório
+## 🚀 Instalação
 
-bashCopygit clone [url-do-repositorio]
+1. Clone o repositório
+```bash
+git clone [url-do-repositorio]
+```
 
-Instale as dependências
+2. Instale as dependências
+```bash
+npm install
+```
 
-bashCopynpm install
+3. Configure as variáveis de ambiente
+```bash
+cp .env.example .env
+```
 
-Configure as variáveis de ambiente
+## ⚙️ Configuração do Banco de Dados
 
-bashCopycp .env.example .env
-⚙️ Configuração do Banco de Dados
 Execute o seguinte script SQL para criar e popular o banco de dados:
-sqlCopyCREATE DATABASE company;
+
+```sql
+CREATE DATABASE company;
 USE company;
 
 -- Tabela de departamentos
@@ -49,24 +59,28 @@ INSERT INTO employees (first_name, last_name, email, position, salary, departmen
     ('João', 'Silva', 'joao.silva@empresa.com', 'Desenvolvedor', 5000.00, 1),
     ('Maria', 'Oliveira', 'maria.oliveira@empresa.com', 'Analista de RH', 4000.00, 2),
     ('Carlos', 'Santos', 'carlos.santos@empresa.com', 'Analista de Marketing', 4500.00, 3);
-🔧 Execução
-bashCopynpm start
-📡 Endpoints
-Departamentos
+```
 
-GET /departments - Lista todos os departamentos
-POST /departments - Cria um novo departamento
+## 🔧 Execução
 
-Funcionários
+```bash
+npm start
+```
 
-GET /employees - Lista todos os funcionários
-POST /employees - Cria um novo funcionário
+## 📡 Endpoints
 
-🛠️ Tecnologias
+### Departamentos
+- `GET /departments` - Lista todos os departamentos
+- `POST /departments` - Cria um novo departamento
 
-Node.js
-Express
-MySQL
+### Funcionários
+- `GET /employees` - Lista todos os funcionários
+- `POST /employees` - Cria um novo funcionário
 
-📝 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+## 🛠️ Tecnologias
+- Node.js
+- Express
+- MySQL
+
+## 📝 Licença
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
