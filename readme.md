@@ -1,9 +1,5 @@
 # API de Funcionários e Departamentos
 
-<div align="center">
-  <img src="./banner.svg" alt="API Banner" />
-</div>
-
 API RESTful para gerenciamento de funcionários e departamentos de uma empresa.
 
 ## 🚀 Instalação
