@@ -1,35 +1,33 @@
-# API de Funcionários e Departamentos
+API de Funcionários e Departamentos
+<div align="center">
+  <img src="./banner.svg" alt="API Banner" />
+</div>
+API RESTful para gerenciamento de funcionários e departamentos de uma empresa.
+🚀 Instalação
 
-## Configuração
-1. Clone o repositório.
-2. Instale as dependências:
-3. Configure o arquivo `.env` com base no `.env.example`.
+Clone o repositório
 
-## Execução
-1. npm start
+bashCopygit clone [url-do-repositorio]
 
-## Endpoints
+Instale as dependências
 
-### Departamentos
-- `GET /departments` - Lista todos os departamentos.
-- `POST /departments` - Cria um novo departamento.
+bashCopynpm install
 
-### Funcionários
-- `GET /employees` - Lista todos os funcionários.
-- `POST /employees` - Cria um novo funcionário.
+Configure as variáveis de ambiente
 
-# DATABASE SCHEMA
-
-CREATE DATABASE company;
+bashCopycp .env.example .env
+⚙️ Configuração do Banco de Dados
+Execute o seguinte script SQL para criar e popular o banco de dados:
+sqlCopyCREATE DATABASE company;
 USE company;
 
--- Criação da tabela de departamentos
+-- Tabela de departamentos
 CREATE TABLE departments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
--- Criação da tabela de funcionários
+-- Tabela de funcionários
 CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -38,23 +36,37 @@ CREATE TABLE employees (
     position VARCHAR(100) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
     department_id INT,
-    FOREIGN KEY (department_id) REFERENCES departments(id) -- Chave estrangeira para o departamento
+    FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
--- Inserindo alguns dados de exemplo
+-- Dados iniciais
+INSERT INTO departments (name) VALUES 
+    ('TI'),
+    ('RH'),
+    ('Marketing');
 
--- Inserir departamentos
-INSERT INTO departments (name) VALUES ('TI');
-INSERT INTO departments (name) VALUES ('RH');
-INSERT INTO departments (name) VALUES ('Marketing');
+INSERT INTO employees (first_name, last_name, email, position, salary, department_id) VALUES 
+    ('João', 'Silva', 'joao.silva@empresa.com', 'Desenvolvedor', 5000.00, 1),
+    ('Maria', 'Oliveira', 'maria.oliveira@empresa.com', 'Analista de RH', 4000.00, 2),
+    ('Carlos', 'Santos', 'carlos.santos@empresa.com', 'Analista de Marketing', 4500.00, 3);
+🔧 Execução
+bashCopynpm start
+📡 Endpoints
+Departamentos
 
--- Inserir funcionários
-INSERT INTO employees (first_name, last_name, email, position, salary, department_id) 
-VALUES ('João', 'Silva', 'joao.silva@empresa.com', 'Desenvolvedor', 5000.00, 1);
+GET /departments - Lista todos os departamentos
+POST /departments - Cria um novo departamento
 
-INSERT INTO employees (first_name, last_name, email, position, salary, department_id) 
-VALUES ('Maria', 'Oliveira', 'maria.oliveira@empresa.com', 'Analista de RH', 4000.00, 2);
+Funcionários
 
-INSERT INTO employees (first_name, last_name, email, position, salary, department_id) 
-VALUES ('Carlos', 'Santos', 'carlos.santos@empresa.com', 'Analista de Marketing', 4500.00, 3);
+GET /employees - Lista todos os funcionários
+POST /employees - Cria um novo funcionário
 
+🛠️ Tecnologias
+
+Node.js
+Express
+MySQL
+
+📝 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
